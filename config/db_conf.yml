@@ -1,0 +1,24 @@
+#编写相关信息host,user,password,database,charset="utf8",port=3306
+db_1:
+  db_host: "127.0.0.1"
+  bd_user: "root"
+  db_password: "mysql"
+  bd_database: "test_27"
+  db_charset: "utf8"
+  db_port: "3306"
+
+db_2:
+  db_host: "22127.0.0.1"
+  bd_user: "root"
+  db_password: "mysql"
+  bd_database: "test_27"
+  db_charset: "utf8"
+  db_port: "3306"
+
+db_3:
+  db_host: "33127.0.0.1"
+  bd_user: "root"
+  db_password: "mysql"
+  bd_database: "test_27"
+  db_charset: "utf8"
+  db_port: "3306"
