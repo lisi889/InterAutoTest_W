@@ -2,6 +2,7 @@ import requests
 from utils.RequestsUtil import requeests_get
 from config.Conf import ConfigYaml
 import pytest
+from utils.AssertUtil import AssertUtil
 #登录post
 """
 def login():
@@ -33,6 +34,9 @@ def test_good_list():
     r = request.get(url,json=data)
     # print(r.json())
     print(r)
+    code = r["code"]
+    # print("-----test",code)
+    AssertUtil().assert_code(code,200)
 
 """
 XHPK7Tg8517DTESltHOhR4J5Us01v9q8MGGYV6y8RhZsluXwbiauqaeqeZCjsAGh
@@ -56,6 +60,6 @@ def cart():
 """
 if __name__=="__main__":
     # login()
-    test_good_list()
+    # good_list()
     # cart()
-    # pytest.main(["-s","t_requests.py"])
+    pytest.main(["-s",])

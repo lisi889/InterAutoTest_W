@@ -1,0 +1,8 @@
+#多个文档
+---
+"test1": 123456
+"username": test1
+
+---
+"test2": 456789
+"username": test2
