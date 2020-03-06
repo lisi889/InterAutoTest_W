@@ -1,18 +1,18 @@
 import pymysql
 #连接databases
 conn = pymysql.connect(
-    host= ,
-    user=,
-    password= ,
-    databases= ,
-    charset= ,
-    port= ,
+    host="127.0.0.1",
+    user="root",
+    password="mysql",
+    database="test_27",
+    charset="utf8",
+    port=3306
 )
 #获取执行sql的光标对象
 currsor = conn.cursor()
 
 #执行sql
-sql = "select username,password from tb_users"
+sql = "select * from roles"
 currsor.execute(sql)
 res = currsor.fetchone()
 print(res)
