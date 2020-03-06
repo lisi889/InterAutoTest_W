@@ -13,7 +13,7 @@ class Mysql:
             charset=charset,
             port=port
         )
-        self.currsor = self.conn.cursor()
+        self.currsor = self.conn.cursor(cursor=pymysql.cursors.DictCursor) #返回变成字典形式
 #创建查询、执行方法
 #单个查询
     def fetchone(self,sql):

@@ -3,6 +3,7 @@ from utils.RequestsUtil import requeests_get
 from config.Conf import ConfigYaml
 import pytest
 from utils.AssertUtil import AssertUtil
+from common.Base import init_db
 #登录post
 """
 def login():
@@ -38,6 +39,17 @@ def test_good_list():
     # print("-----test",code)
     AssertUtil().assert_code(code,200)
 
+    body = r["body"]
+    AssertUtil().assert_in_body(body, '"id":1,"name":"大神"')
+
+    #初始化数据对象
+    conn = init_db("db_1")
+    #查询结果
+    res_db = conn.fetchone("select * from roles")
+    print("数据库查询结果：%s" % res_db)
+    #验证
+    user_id= body["id"]
+    assert user_id == res_db["id"]
 """
 XHPK7Tg8517DTESltHOhR4J5Us01v9q8MGGYV6y8RhZsluXwbiauqaeqeZCjsAGh
 """
