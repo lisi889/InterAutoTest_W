@@ -17,31 +17,25 @@ class Mysql:
 #创建查询、执行方法
 #单个查询
     def fetchone(self,sql):
+        self.currsor.execute(sql)
+        return self.currsor.fetchone()
+#多个查询
+    def fetchall(self,sql):
+        self.currsor.fetchall(sql)
+        return self.currsor.fetchall()
+
+#执行
+    def exec(self):
         try:
             if self.conn and self.currsor:
                 self.currsor.execute(sql)
-                return self.currsor.fetchone()
+                self.currsor.commit()
         except Exception as e:
             self.conn.rollback()
-            self.log.error("mysql 执行失败")
-            self.log.error(e)
+            my_log().error("mysql执行失败")
+            my_log().error(e)
             return False
         return True
-#多个查询
-    def fetchall(self,sql):
-        try:
-            if self.conn and self.currsor:
-                self.currsor.fetchall(sql)
-                return self.currsor.fetchall()
-        except Exception as e:
-            self.log.error("mysql 执行失败")
-            self.log.error(e)
-            return False
-        return True
-#执行
-    def exec(self):
-        self.currsor.execute(sql)
-        self.currsor.commit()
 #关闭对象
     def __del__(self):
         if self.currsor is not None:
