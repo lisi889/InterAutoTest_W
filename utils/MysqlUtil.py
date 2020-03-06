@@ -51,7 +51,7 @@ if __name__ == "__main__":
                   port=3306)
     # res = mysql.fetchone("select * from roles")
     # print(res)
-    res = mysql.fetchone("updata roles set name='李斯'")
+    res = mysql.fetchone("update roles set name='李斯' where id=1")
     print(res)
 #连接databases
 # conn = pymysql.connect(
