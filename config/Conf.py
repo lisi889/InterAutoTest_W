@@ -19,6 +19,9 @@ print(_config_file)
 #定义log文件路径
 _log_patch = BASE_DIR + os.sep + "logs"
 
+#定义db_conf路径
+_db_config_file = _config_path + os.sep + "db_conf.yml"
+
 def get_config_path():
     return _config_path
 
@@ -28,12 +31,16 @@ def get_config_file():
 def get_log_path():
     return _log_patch
 
+def get_db_conf_get():
+    return _db_config_file
+
 #读取配置文件
 #创建类
 class ConfigYaml:
 #初始化ymal
     def __init__(self):
         self.config = YamlReader(get_config_file()).data()
+        self.db_config = YamlReader(get_db_conf_get()).data()
         # print("-----------" % self.config )
 
 # 获取信息
@@ -47,8 +54,14 @@ class ConfigYaml:
     #获取文件扩展名
     def get_cont_log_extension(self):
         return self.config["BASE"]["log_extension"]
+
+    def get_db_conf_info(self,db_alias):
+        return self.db_config[db_alias]
 if __name__ == "__main__":
     conf_read = ConfigYaml()
     # print(conf_read.get_conf_url())
     print(conf_read.get_cont_log())
     print(conf_read.get_cont_log_extension())
+    print(conf_read.get_db_conf_info("db_1"))
+    print(conf_read.get_db_conf_info("db_2"))
+    print(conf_read.get_db_conf_info("db_3"))
