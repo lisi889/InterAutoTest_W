@@ -21,15 +21,15 @@ class Mysql:
         return self.currsor.fetchone()
 #多个查询
     def fetchall(self,sql):
-        self.currsor.fetchall(sql)
+        self.currsor.execute(sql)
         return self.currsor.fetchall()
 
 #执行
-    def exec(self):
+    def exec(self,sql):
         try:
             if self.conn and self.currsor:
                 self.currsor.execute(sql)
-                self.currsor.commit()
+                self.conn.commit()  #---这里开始写错了
         except Exception as e:
             self.conn.rollback()
             my_log().error("mysql执行失败")
@@ -51,7 +51,7 @@ if __name__ == "__main__":
                   port=3306)
     # res = mysql.fetchone("select * from roles")
     # print(res)
-    res = mysql.fetchone("update roles set name='李斯' where id=1")
+    res = mysql.exec("update roles set name='大大' where id=1")  #---这里开始用错了方法用成了fetchone
     print(res)
 #连接databases
 # conn = pymysql.connect(

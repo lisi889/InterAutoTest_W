@@ -16,10 +16,11 @@ def init_db(db_alias):
     password = db_info["db_password"]
     database = db_info["bd_database"]
     charset = db_info["db_charset"]
-    port = db_info["db_port"]
+    port = int(db_info["db_port"] ) #port需要转为int类型
 
 #初始化mysql对象
     conn = Mysql(host,user,password,database,charset,port)
+    print(conn)
     return conn
 
 if __name__ =="__main__":
