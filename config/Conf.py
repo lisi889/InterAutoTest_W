@@ -63,11 +63,21 @@ class ConfigYaml:
 
     def get_db_conf_info(self,db_alias):
         return self.db_config[db_alias]
+
+    def get_excel_file(self):
+        """获取excel用例名称"""
+        return self.config["BASE"]["test"]["case_file"]
+    def get_excel_sheet(self):
+        """获取sheet用例名称"""
+        return self.config["BASE"]["test"]["case_sheet"]
+
 if __name__ == "__main__":
     conf_read = ConfigYaml()
     # print(conf_read.get_conf_url())
-    print(conf_read.get_cont_log())
-    print(conf_read.get_cont_log_extension())
-    print(conf_read.get_db_conf_info("db_1"))
-    print(conf_read.get_db_conf_info("db_2"))
-    print(conf_read.get_db_conf_info("db_3"))
+    # print(conf_read.get_cont_log())
+    # print(conf_read.get_cont_log_extension())
+    # print(conf_read.get_db_conf_info("db_1"))
+    # print(conf_read.get_db_conf_info("db_2"))
+    # print(conf_read.get_db_conf_info("db_3"))
+    print(conf_read.get_excel_file())
+    print(conf_read.get_excel_sheet())

@@ -5,7 +5,7 @@ class Data:
         #使用ｅｘｃｅｌ工具类，获取结果ｌｉｓｔ
         # self.reder = ExcelReader("../data/testdata.xlsx", "Sheet1")
         self.reder = ExcelReader(tesecase_file,sheet_name)
-        # print(self.reder.data())
+        print(self.reder.data())
 
     def get_run_data(self):
         # 列是否运行内容ｙ
