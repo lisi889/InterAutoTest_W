@@ -1,5 +1,5 @@
 from utils.ExcelUtil import ExcelReader
-
+from common.ExcelConfig import DataConfig
 class Data:
     def __init__(self,tesecase_file,sheet_name):
         #使用ｅｘｃｅｌ工具类，获取结果ｌｉｓｔ
@@ -12,9 +12,10 @@ class Data:
         run_list = []
         for line in self.reder.data():
 
-            if line["是否运行"] == "y":
+            if str(line[DataConfig.is_run]).lower() == "y":
                 print(line)
                 #保存执行的结果放到新列表
                 run_list.append(line)
         print(run_list)
         #保存要执行的结果，放到新的列表
+        return run_list
