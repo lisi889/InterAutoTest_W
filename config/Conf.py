@@ -22,6 +22,9 @@ _log_patch = BASE_DIR + os.sep + "logs"
 #定义db_conf路径
 _db_config_file = _config_path + os.sep + "db_conf.yml"
 
+#定义data目录
+_data_config_path = BASE_DIR +os.sep + "data"
+
 def get_config_path():
     return _config_path
 
@@ -33,6 +36,9 @@ def get_log_path():
 
 def get_db_conf_get():
     return _db_config_file
+
+def get_data_path():
+    return _data_config_path
 
 #读取配置文件
 #创建类
