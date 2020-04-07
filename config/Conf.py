@@ -25,6 +25,9 @@ _db_config_file = _config_path + os.sep + "db_conf.yml"
 #定义data目录
 _data_config_path = BASE_DIR +os.sep + "data"
 
+#定义report目录的路径
+_report_path = BASE_DIR + os.sep +"report"
+
 def get_config_path():
     return _config_path
 
@@ -39,6 +42,13 @@ def get_db_conf_get():
 
 def get_data_path():
     return _data_config_path
+
+def get_report_path():
+    """
+    获取report绝对路径
+    :return:
+    """
+    return _report_path
 
 #读取配置文件
 #创建类
@@ -71,6 +81,10 @@ class ConfigYaml:
         """获取sheet用例名称"""
         return self.config["BASE"]["test"]["case_sheet"]
 
+    def get_email_info(self):
+        """获取邮件配置信息"""
+        return self.config["email"]
+
 if __name__ == "__main__":
     conf_read = ConfigYaml()
     # print(conf_read.get_conf_url())
@@ -81,3 +95,4 @@ if __name__ == "__main__":
     # print(conf_read.get_db_conf_info("db_3"))
     print(conf_read.get_excel_file())
     print(conf_read.get_excel_sheet())
+    print(conf_read.get_email_info())

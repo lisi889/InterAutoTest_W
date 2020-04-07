@@ -22,6 +22,7 @@ class YamlReader:
 #多个读取
     def data_all(self):
         if not self._data_all:
-            with open("./data_all.yml","r",encoding="utf8") as f:
+            # with open("./data_all.yml","r",encoding="utf8") as f:
+            with open(self.yamlf, "r", encoding="utf8") as f:
                 self._data_all = list(yaml.safe_load_all(f))
         return self._data_all

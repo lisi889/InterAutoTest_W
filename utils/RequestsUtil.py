@@ -16,7 +16,7 @@ def requeests_get(url,json):
     return res
 
 """第二步定义公共方法"""
-class request:
+class Request:
     #初始化log
     def __init__(self):
         self.log = my_log("request")

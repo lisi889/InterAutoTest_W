@@ -241,7 +241,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 06-Mar-2020 at 16:03:40 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
+    <p>Report generated on 08-Mar-2020 at 18:56:58 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -260,8 +260,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.6.5</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 1.09 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">0 rerun</span>
+    <p>2 tests ran in 0.21 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>, <input checked="true" class="filter" data-test-result="rerun" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="rerun">0 rerun</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -272,12 +272,21 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testcase/test_requests.py::test_good_list</td>
-          <td class="col-duration">0.95</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">testcase/test_login.py::test_yaml[login0]</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> -------------------------------Captured log call-------------------------------- <br/>DEBUG    request:RequestsUtil.py:26 发送get请求<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">login = {&#x27;case_name&#x27;: &#x27;登录成功用例&#x27;, &#x27;data&#x27;: {&#x27;password&#x27;: &#x27;12345678&#x27;, &#x27;username&#x27;: &#x27;python&#x27;}, &#x27;expect&#x27;: &#x27;&quot;user_id&quot;:1,&quot;username&quot;:&quot;python&quot;&#x27;, &#x27;url&#x27;: &#x27;categories/115/sku&#x27;}<br/><br/>    @pytest.mark.parametrize(&quot;login&quot;,data_list)<br/>    def test_yaml(login):<br/>        #初始化url,data<br/>&gt;       url = ConfigYaml.get_conf_url()+login[&quot;url&quot;]<br/><span class="error">E       TypeError: get_conf_url() missing 1 required positional argument: &#x27;self&#x27;</span><br/><br/>test_login.py:20: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">testcase/test_login.py::test_yaml[login1]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">login = {&#x27;case_name&#x27;: &#x27;登录成功用例&#x27;, &#x27;data&#x27;: {&#x27;password&#x27;: &#x27;12345678&#x27;, &#x27;username&#x27;: &#x27;python11&#x27;}, &#x27;expect&#x27;: &#x27;&quot;user_id&quot;:1,&quot;username&quot;:&quot;python&quot;&#x27;, &#x27;url&#x27;: &#x27;categories/115/sku&#x27;}<br/><br/>    @pytest.mark.parametrize(&quot;login&quot;,data_list)<br/>    def test_yaml(login):<br/>        #初始化url,data<br/>&gt;       url = ConfigYaml.get_conf_url()+login[&quot;url&quot;]<br/><span class="error">E       TypeError: get_conf_url() missing 1 required positional argument: &#x27;self&#x27;</span><br/><br/>test_login.py:20: TypeError<br/></div></td></tr></tbody></table></body></html>

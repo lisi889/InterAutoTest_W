@@ -1,12 +1,15 @@
 import re
+import subprocess
 
 from config.Conf import ConfigYaml
+from utils.EmailUtil import SendEmail
 from utils.MysqlUtil import Mysql
 import json
 from utils.AssertUtil import AssertUtil
 from utils.LogUtil import my_log
 p_data = re.compile('\${(.*)}\$')
 log = my_log()
+
 #定义init_db
 def init_db(db_alias):
 # db_1:
@@ -78,6 +81,42 @@ def params_find(headers,cookies):
     if "${" in cookies:
         cookies = res_find(cookies)
     return headers,cookies
+
+def allure_report(report_path,report_html):
+    """
+    生成allure报告
+    :param report_path:
+    :param report_html:
+    :return:
+    """
+
+    #执行命令 allure generate
+    allure_com = "allure generate --clean %s -o %s" % (report_path,report_html)
+    # subprocess.call
+    log.info("报告地址")
+    try:
+        subprocess.call(allure_com,shell=True)
+    except Exception as e:
+        print(e)
+        log.error("执行用例失败，请检查一下测试环境相关配置")
+        raise
+def send_mail(report_html_path="",content= "",title="测试"):
+    """发送邮件"""
+    # from config.Conf import ConfigYaml
+    email_info = ConfigYaml().get_email_info()
+    smtp_addr = email_info["smtpserver"]
+    username = email_info["username"]
+    password = email_info["password"]
+    recv = email_info["receiver"]
+    email = SendEmail(
+        smtp_addr=smtp_addr,
+        username=username,
+        password=password,
+        recv=recv,
+        title=title,
+        content=content,
+        file=report_html_path)
+    email.send_mail()
 
 
 if __name__ =="__main__":

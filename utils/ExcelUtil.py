@@ -12,6 +12,8 @@ class SheetTypeError:
 class ExcelReader:
 #验证文件是否存在
     def __init__(self,excel_file,sheet_by):
+        # print(excel_file,sheet_by)
+        # print(os.path)
         if os.path.exists(excel_file):
             self.excel_file = excel_file
             self.sheet_by = sheet_by

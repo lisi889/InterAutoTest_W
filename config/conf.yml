@@ -8,3 +8,9 @@ BASE:
   url: "http://211.103.136.242:8064"
   case_file: "testdata.xlsx"
   case_sheet: "Sheet1"
+
+email:
+ smtpserver: "smtp.163.com"
+ username: "lisi889@163.com"
+ password: "OJAOFKPPOLRBDCDO"
+ receiver: "lisi889@163.com"
